@@ -1,0 +1,624 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("/assets/fonts/Ubuntu-Medium.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/Ubuntu-Regular.ttf") format("truetype");
+}
+body {
+  margin: 0;
+  font-family: myFirstFont;
+  font-weight: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e9f2ff;
+  color: #0f2346;
+}
+
+.container {
+  display: flex;
+  gap: 70px;
+  border-radius: 15px;
+  width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+.container .steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-image: url("/assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  height: 490px;
+  width: 240px;
+  background-size: contain;
+  color: white;
+  padding: 25px;
+  padding-left: 40px;
+}
+.container .steps li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  gap: 5px;
+  font-weight: bold;
+  margin-left: 25px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.container .steps li::before {
+  position: absolute;
+  content: "1";
+  top: 50%;
+  transform: translatey(-50%);
+  left: -40px;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .steps li.active::before {
+  background-color: #bcdcfd;
+  color: black;
+}
+.container .steps li:nth-child(2)::before {
+  content: "2";
+}
+.container .steps li:nth-child(3)::before {
+  content: "3";
+}
+.container .steps li:nth-child(4)::before {
+  content: "4";
+}
+.container .steps li .step {
+  text-transform: uppercase;
+  font-size: 11px;
+  opacity: 0.6;
+  font-weight: normal;
+}
+.container .multi-main {
+  padding-right: 30px;
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.container .multi-main .step1 {
+  position: absolute;
+  width: 100%;
+  padding: 20px 10px;
+  border-radius: 10px;
+  background-color: white;
+  opacity: 0;
+  transition: 0.3s;
+}
+.container .multi-main .step1.active {
+  opacity: 1;
+  z-index: 10;
+}
+.container .multi-main .step1 h1 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.container .multi-main .step1 p {
+  color: gray;
+}
+.container .multi-main .step1 form {
+  margin-top: 30px;
+}
+.container .multi-main .step1 form .name.error .error,
+.container .multi-main .step1 form .email.error .error,
+.container .multi-main .step1 form .phone.error .error {
+  font-weight: bold;
+  color: red;
+  display: block;
+}
+.container .multi-main .step1 form .name.error input,
+.container .multi-main .step1 form .email.error input,
+.container .multi-main .step1 form .phone.error input {
+  border-color: red;
+}
+.container .multi-main .step1 form label {
+  display: block;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 20px 0 10px 0;
+  color: rgb(57, 57, 57);
+  display: flex;
+  justify-content: space-between;
+}
+.container .multi-main .step1 form label .error {
+  font-weight: bold;
+  color: red;
+  display: none;
+}
+.container .multi-main .step1 form input {
+  width: 100%;
+  height: 50px;
+  border-radius: 3px;
+  border: 1.5px solid rgb(216, 216, 216);
+  padding: 10px;
+  font-size: 1.1rem;
+}
+.container .multi-main .step1 form input::-moz-placeholder {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.container .multi-main .step1 form input:-ms-input-placeholder {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.container .multi-main .step1 form input::placeholder {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.container .multi-main .step1 form input:focus {
+  border-radius: 3px;
+  border: 1.5px solid purple;
+  outline: none;
+}
+.container .multi-main .step1 form .submit {
+  display: flex;
+  padding: 0 0 15px 0;
+  justify-content: space-between;
+}
+.container .multi-main .step1 form .submit .prev {
+  background-color: transparent;
+  color: gray;
+  transition: 0.3s;
+}
+.container .multi-main .step1 form .submit .prev:hover {
+  color: black;
+  background-color: transparent;
+}
+.container .multi-main .step1 form input[type=submit] {
+  background-color: black;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0;
+  height: 40px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-top: 30px;
+  padding: 0 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.container .multi-main .step1 form input[type=submit]:hover {
+  background-color: #174a8b;
+}
+
+.step2 {
+  transition: 0.3s;
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+}
+.step2.active {
+  opacity: 1;
+  z-index: 10;
+}
+.step2 .selcted {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.step2 .selcted .box {
+  border: 1px solid gray;
+  padding: 15px;
+  border-radius: 10px;
+}
+.step2 .selcted .box.chose {
+  background-color: rgb(221, 236, 255);
+  border-color: rgb(153, 106, 255);
+}
+@media (min-width: 768px) {
+  .step2 .selcted .box {
+    width: 130px;
+  }
+  .step2 .selcted img {
+    margin-right: 15px;
+  }
+  .step2 .selcted input {
+    display: none;
+  }
+  .step2 .selcted h3 {
+    margin: 0;
+    margin: 20px 0 10px 0;
+  }
+  .step2 .selcted span {
+    color: gray;
+  }
+}
+.step2 .yearly-plan {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  background-color: #f8f9fe;
+}
+.step2 .yearly-plan span {
+  color: gray;
+}
+.step2 .yearly-plan span.black {
+  color: #042b59;
+}
+.step2 .yearly-plan .plan {
+  width: 70px;
+  height: 30px;
+  background-color: #042b59;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.step2 .yearly-plan .plan::before {
+  content: " ";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  left: 5px;
+  top: 50%;
+  transform: translatey(-50%);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.step2 .yearly-plan #plan {
+  display: none;
+}
+.step2 .yearly-plan #plan:checked + label::before {
+  left: 45px;
+}
+
+.step3 {
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+}
+.step3.active {
+  opacity: 1;
+  z-index: 10;
+}
+.step3 h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.step3 p {
+  color: gray;
+}
+.step3 .ons {
+  width: 100%;
+}
+.step3 .ons .box {
+  border: 1px solid gray;
+  padding: 15px;
+  border-radius: 5px;
+  width: 90%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.step3 .ons .box.highlight {
+  background-color: rgb(221, 236, 255);
+  border-color: rgb(153, 106, 255);
+}
+.step3 .ons .box input {
+  display: none;
+}
+.step3 .ons .box input:checked {
+  border: 1px solid #3f67fa;
+}
+.step3 .ons .box input:checked + .chechmark::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.step3 .ons .box .chechmark {
+  height: 20px;
+  width: 20px;
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  cursor: pointer;
+  margin-right: 20px;
+  border: 1px solid gray;
+  transition: 0.3s;
+}
+.step3 .ons .box .chechmark::before {
+  content: "\f00c";
+  position: absolute;
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  font-size: 15px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0) rotate(90deg);
+  color: white;
+  transition: 0.2s;
+  background-color: #3f67fa;
+  border-radius: 2px;
+}
+.step3 .ons .box label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.step3 .ons .box label .price {
+  flex: 1;
+  text-align: end;
+}
+.step3 .ons .box .text span {
+  display: block;
+  color: gray;
+}
+.step3 .ons .box .text .title {
+  margin-bottom: 10px;
+  color: black;
+}
+.step3 .ons .box .price {
+  color: rgba(72, 62, 255, 0.8117647059);
+}
+
+.step4 {
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  left: 0;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+.step4.active {
+  opacity: 1;
+  z-index: 10;
+}
+.step4 p {
+  color: gray;
+}
+.step4 .amount {
+  background-color: #f8f9fe;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+.step4 .amount .the-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.step4 .amount .the-main .type {
+  display: flex;
+  flex-direction: column;
+}
+.step4 .amount .the-main .type .name {
+  padding-bottom: 5px;
+}
+.step4 .amount .the-main .price {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.step4 .amount .extanxtons {
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgb(197, 197, 197);
+}
+.step4 .amount .extanxtons .ext {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.step4 .amount .extanxtons .ext .service-name {
+  color: gray;
+}
+.step4 .total {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  padding-bottom: 20px;
+}
+.step4 .total .total-price {
+  color: #625aff;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.finshed-page {
+  background-color: white;
+  transition: 0.3s;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+.finshed-page.active {
+  opacity: 1;
+  z-index: 25;
+}
+.finshed-page h1 {
+  margin-bottom: 5px;
+}
+.finshed-page p {
+  margin-top: 5px;
+  color: gray;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .contrals.c2 {
+    display: none;
+  }
+}
+.contrals {
+  z-index: 40;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 15px 20px;
+}
+.contrals button.next {
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #042b59;
+}
+.contrals button.next:hover {
+  background-color: #3f67fa;
+}
+.contrals button.next:active {
+  scale: 0.9;
+}
+.contrals button.back {
+  color: gray;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.contrals button.back:active {
+  scale: 0.9;
+}
+
+@media (max-width: 767px) {
+  body {
+    align-items: flex-start;
+    position: relative;
+  }
+  .container {
+    padding: 0;
+    background-color: transparent;
+  }
+  .container .steps {
+    background-image: url("/assets/images/bg-sidebar-mobile.svg");
+    width: 100%;
+    background-size: cover;
+    padding-top: 35px;
+  }
+  .container .steps li {
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+  }
+  .container .steps li::before {
+    width: 35px;
+    height: 35px;
+    left: 0;
+  }
+  .container .steps {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    height: 200px;
+    margin: 0;
+  }
+  .container .steps span {
+    display: none;
+  }
+  .container .multi-main {
+    border-radius: 10px;
+    margin: 0 20px;
+    padding: 0;
+    background-color: white;
+    padding: 15px;
+    margin-top: -150px;
+    padding: 30px 20px;
+  }
+  .container .multi-main .step1 form .submit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 30px 15px;
+  }
+  .step2 {
+    padding: 25px;
+  }
+  .step2 .selcted {
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .step2 .box {
+    width: 100%;
+  }
+  .step2 .box input {
+    display: none;
+  }
+  .step2 .box .icon {
+    margin-right: 20px;
+  }
+  .step2 .box label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .step2 .box label .text h3 {
+    margin: 0 0 5px 0;
+  }
+  .c1 {
+    display: none;
+  }
+  .c2 {
+    display: flex;
+  }
+  .step3 {
+    background-color: white;
+    padding: 15px 5px 15px 30px;
+    border-radius: 15px;
+  }
+  .step3 .box {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  .step3 .box .title {
+    font-size: 14px;
+  }
+  .contrals {
+    padding: 15px;
+    background: white;
+  }
+}/*# sourceMappingURL=style.css.map */
