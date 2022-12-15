@@ -225,6 +225,14 @@ body {
   padding: 15px;
   border-radius: 10px;
 }
+.step2 .selcted .box .monay {
+  display: block;
+  padding: 2px 0;
+}
+.step2 .selcted .box .free {
+  font-weight: bold;
+  font-size: 13px;
+}
 .step2 .selcted .box.chose {
   background-color: rgb(221, 236, 255);
   border-color: rgb(153, 106, 255);
@@ -516,6 +524,7 @@ body {
   font-size: 1rem;
   font-weight: bold;
   transition: 0.2s;
+  opacity: 0;
 }
 .contrals button.back:active {
   scale: 0.9;

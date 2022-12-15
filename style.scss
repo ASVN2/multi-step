@@ -261,6 +261,14 @@ body {
       border: 1px solid gray;
       padding: 15px;
       border-radius: 10px;
+      .monay {
+        display: block;
+        padding: 2px 0;
+      }
+      .free {
+        font-weight: bold;
+        font-size: 13px;
+      }
       &.chose {
         background-color: rgb(221, 236, 255);
         border-color: rgb(153, 106, 255);
@@ -581,6 +589,7 @@ body {
     font-size: 1rem;
     font-weight: bold;
     transition: 0.2s;
+    opacity: 0;
     &:active {
       scale: 0.9;
     }
